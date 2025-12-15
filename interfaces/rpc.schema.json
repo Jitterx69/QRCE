@@ -1,0 +1,12 @@
+{
+  "ExecuteExperiment": {
+    "experiment_id": "string",
+    "steps": "integer",
+    "initial_state": "array[number]"
+  },
+  "ExecutionResult": {
+    "final_state": "array[number]",
+    "steps_executed": "integer",
+    "diverged": "boolean"
+  }
+}

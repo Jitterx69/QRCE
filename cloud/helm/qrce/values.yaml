@@ -1,0 +1,5 @@
+platform:
+  replicas: 1
+
+worker:
+  replicas: 2

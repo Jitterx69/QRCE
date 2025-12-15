@@ -1,0 +1,19 @@
+{
+  "LogEvent": {
+    "timestamp": "string",
+    "component": "string",
+    "event": "string",
+    "payload": "object"
+  },
+  "Metric": {
+    "name": "string",
+    "value": "number",
+    "labels": "object"
+  },
+  "Trace": {
+    "trace_id": "string",
+    "span": "string",
+    "start": "string",
+    "end": "string"
+  }
+}

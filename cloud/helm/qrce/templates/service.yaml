@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: qrce-platform
+spec:
+  selector:
+    app: qrce-platform
+  ports:
+    - port: 80
+      targetPort: 8080

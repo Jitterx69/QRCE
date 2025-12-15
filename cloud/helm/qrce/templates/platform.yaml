@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qrce-platform
+spec:
+  replicas: {{ .Values.platform.replicas }}
+  selector:
+    matchLabels:
+      app: qrce-platform
+  template:
+    metadata:
+      labels:
+        app: qrce-platform
+    spec:
+      containers:
+        - name: platform
+          image: qrce-platform:latest
+          ports:
+            - containerPort: 8080

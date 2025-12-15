@@ -1,0 +1,15 @@
+[project]
+name = "qrce"
+version = "0.1.0"
+requires-python = ">=3.10"
+
+dependencies = [
+  "numpy",
+  "scipy",
+  "networkx",
+  "matplotlib",
+  "pydantic",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["engine/tests", "quantum/tests", "control/tests"]

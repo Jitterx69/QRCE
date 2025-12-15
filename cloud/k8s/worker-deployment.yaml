@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qrce-worker
+  namespace: qrce
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: qrce-worker
+  template:
+    metadata:
+      labels:
+        app: qrce-worker
+    spec:
+      containers:
+        - name: worker
+          image: qrce-worker:latest

@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qrce-qpu
+  namespace: qrce
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: qrce-qpu
+  template:
+    metadata:
+      labels:
+        app: qrce-qpu
+    spec:
+      containers:
+        - name: qpu
+          image: qrce-qpu:latest
+          ports:
+            - containerPort: 9100
