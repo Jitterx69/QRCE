@@ -326,7 +326,7 @@ quantum-reflexive-control-system/
 ├── cloud/               # Deployment configurations
 ├── interfaces/          # JSON schemas for APIs
 ├── scripts/             # Automation scripts
-└── README.md            # This document
+└── README.md            
 ```
 
 ## Appendix B: Contact Information
@@ -334,8 +334,9 @@ quantum-reflexive-control-system/
 For research collaboration, technical inquiries, or access requests:
 
 **Author**: Mohit Ranjan  
-**Affiliation**: Independent Researcher  
+**Affiliation**: Independent Researcher, Department of Robotics & Artificial Intelligence, C.V Raman Global University, Bhubaneswar-752054, India.  
 **Repository**: quantum-reflexive-control-system
+**ORCiD**: 0009-0005-9879-7373
 
 ---
 
