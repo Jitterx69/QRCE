@@ -12,4 +12,11 @@ dependencies = [
 ]
 
 [tool.pytest.ini_options]
-testpaths = ["engine/tests", "quantum/tests", "control/tests"]
+testpaths = ["engine/tests", "quantum/tests", "control/tests", "runtime/tests"]
+pythonpath = ["."]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
+addopts = "-v --tb=short"
+
+

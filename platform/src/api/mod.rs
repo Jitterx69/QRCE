@@ -1,9 +1,10 @@
 use axum::Router;
 
-pub mod routes;
 pub mod models;
+pub mod routes;
 
-pub fn router() -> Router {
-    Router::new()
-        .merge(routes::router())
+use crate::state::AppState;
+
+pub fn router() -> Router<AppState> {
+    routes::router()
 }

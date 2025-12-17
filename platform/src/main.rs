@@ -1,4 +1,4 @@
-use axum::{Router};
+use axum::Router;
 use tower_http::cors::CorsLayer;
 
 mod api;
@@ -18,11 +18,17 @@ async fn main() {
 
     let app = Router::new()
         .merge(api::router())
-        .with_state(state)
-        .layer(CorsLayer::permissive());
+        .layer(CorsLayer::permissive())
+        .with_state(state);
 
-    axum::Server::bind(&"0.0.0.0:8080".parse().unwrap())
-        .serve(app.into_make_service())
+    let listener = tokio::net::TcpListener::bind("0.0.0.0:8080")
+        .await
+        .unwrap();
+    
+    println!("QRCE Platform listening on http://0.0.0.0:8080");
+    
+    axum::serve(listener, app)
         .await
         .unwrap();
 }
+

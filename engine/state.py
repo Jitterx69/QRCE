@@ -1,8 +1,8 @@
 import numpy as np
 
 class State:
-    def __init__(self, vector: np.ndarray):
-        self.v = vector.astype(float)
+    def __init__(self, vector):
+        self.v = np.asarray(vector, dtype=float)
 
     def copy(self):
         return State(self.v.copy())
@@ -15,3 +15,7 @@ class State:
         if n > 0:
             self.v /= n
         return self
+    
+    def distance(self, other):
+        return np.linalg.norm(self.v - other.v)
+

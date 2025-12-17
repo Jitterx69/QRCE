@@ -1,0 +1,81 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Metrics Schemas",
+    "description": "Schemas for system metrics and diagnostics",
+    "definitions": {
+        "ConvergenceMetrics": {
+            "type": "object",
+            "properties": {
+                "converged": {
+                    "type": "boolean"
+                },
+                "iterations": {
+                    "type": "integer"
+                },
+                "final_distance": {
+                    "type": "number"
+                },
+                "convergence_rate": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "converged",
+                "iterations"
+            ]
+        },
+        "QuantumMetrics": {
+            "type": "object",
+            "properties": {
+                "entropy": {
+                    "type": "number",
+                    "description": "Von Neumann entropy"
+                },
+                "purity": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "description": "State purity"
+                },
+                "trace_distance": {
+                    "type": "number",
+                    "description": "Trace distance from previous state"
+                }
+            }
+        },
+        "PerformanceMetrics": {
+            "type": "object",
+            "properties": {
+                "execution_time_ms": {
+                    "type": "number"
+                },
+                "memory_usage_mb": {
+                    "type": "number"
+                },
+                "cpu_usage_percent": {
+                    "type": "number"
+                }
+            }
+        },
+        "EthicalMetrics": {
+            "type": "object",
+            "properties": {
+                "harm_value": {
+                    "type": "number"
+                },
+                "information_leakage": {
+                    "type": "number"
+                },
+                "stability_measure": {
+                    "type": "number"
+                },
+                "constraints_violated": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}

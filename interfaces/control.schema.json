@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Control Layer Schemas",
+  "description": "Schemas for ethical and computability control layer",
+  "definitions": {
+    "EthicalConstraints": {
+      "type": "object",
+      "properties": {
+        "harm_threshold": {
+          "type": "number",
+          "description": "Maximum allowable harm value"
+        },
+        "leakage_threshold": {
+          "type": "number",
+          "description": "Maximum information leakage allowed"
+        },
+        "stability_threshold": {
+          "type": "number",
+          "description": "Maximum growth rate for stability"
+        }
+      },
+      "required": ["harm_threshold", "leakage_threshold", "stability_threshold"]
+    },
+    "BellmanConfig": {
+      "type": "object",
+      "properties": {
+        "gamma": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Discount factor for future costs"
+        }
+      },
+      "required": ["gamma"]
+    },
+    "ComputabilityStatus": {
+      "type": "object",
+      "properties": {
+        "halts": {
+          "type": "boolean",
+          "description": "Whether the system halts"
+        },
+        "oscillates": {
+          "type": "boolean",
+          "description": "Whether the system oscillates"
+        },
+        "period": {
+          "type": ["integer", "null"],
+          "description": "Oscillation period if applicable"
+        }
+      },
+      "required": ["halts", "oscillates"]
+    }
+  }
+}

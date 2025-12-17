@@ -1,0 +1,100 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "QPU Schemas",
+    "description": "Schemas for Quantum Processing Unit interface",
+    "definitions": {
+        "QPURequest": {
+            "type": "object",
+            "properties": {
+                "rho": {
+                    "type": "array",
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "description": "Density matrix (real part for JSON serialization)"
+                },
+                "steps": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "description": "Number of evolution steps"
+                },
+                "circuit": {
+                    "type": "object",
+                    "description": "Optional circuit specification"
+                }
+            },
+            "required": [
+                "rho",
+                "steps"
+            ]
+        },
+        "QPUResponse": {
+            "type": "object",
+            "properties": {
+                "final_rho": {
+                    "type": "array",
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "description": "Final density matrix"
+                },
+                "execution_time_ms": {
+                    "type": "number"
+                },
+                "qpu_id": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "final_rho"
+            ]
+        },
+        "QPUInfo": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "max_qubits": {
+                    "type": "integer",
+                    "minimum": 1
+                },
+                "noise_level": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                },
+                "cost": {
+                    "type": "number",
+                    "minimum": 0
+                },
+                "status": {
+                    "type": "string",
+                    "enum": [
+                        "available",
+                        "busy",
+                        "offline"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "url",
+                "max_qubits",
+                "noise_level",
+                "cost",
+                "status"
+            ]
+        }
+    }
+}

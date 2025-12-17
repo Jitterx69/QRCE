@@ -1,5 +1,72 @@
+# QRCE Helm Chart Values
+# Override these values during installation with --set or -f custom-values.yaml
+
+# Platform service configuration
 platform:
   replicas: 1
+  image: qrce-platform
+  tag: latest
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "250m"
+    limits:
+      memory: "512Mi"
+      cpu: "500m"
 
+# Worker service configuration
 worker:
   replicas: 2
+  image: qrce-worker
+  tag: latest
+  resources:
+    requests:
+      memory: "512Mi"
+      cpu: "500m"
+    limits:
+      memory: "1Gi"
+      cpu: "1000m"
+
+# QPU simulator configuration
+qpu:
+  replicas: 1
+  image: qrce-qpu
+  tag: latest
+  noiseLevel: "0.01"
+  resources:
+    requests:
+      memory: "512Mi"
+      cpu: "500m"
+    limits:
+      memory: "2Gi"
+      cpu: "2000m"
+
+# Service configuration
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8080
+
+# Ingress configuration (optional)
+ingress:
+  enabled: false
+  className: nginx
+  annotations: {}
+  hosts:
+    - host: qrce.local
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []
+
+# Observability configuration
+observability:
+  prometheus:
+    enabled: false
+    port: 9090
+  grafana:
+    enabled: false
+    port: 3000
+
+# Namespace
+namespace: qrce

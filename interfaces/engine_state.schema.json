@@ -1,0 +1,79 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Engine State Schemas",
+    "description": "Schemas for classical reflexive engine state",
+    "definitions": {
+        "State": {
+            "type": "object",
+            "properties": {
+                "vector": {
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    },
+                    "description": "State vector"
+                },
+                "norm": {
+                    "type": "number",
+                    "description": "Norm of the state vector"
+                }
+            },
+            "required": [
+                "vector"
+            ]
+        },
+        "EngineConfig": {
+            "type": "object",
+            "properties": {
+                "world_matrix": {
+                    "type": "array",
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "description": "World dynamics matrix"
+                },
+                "agent_gain": {
+                    "type": "number",
+                    "description": "Agent policy gain parameter"
+                },
+                "prophecy_noise": {
+                    "type": "number",
+                    "description": "Prophecy measurement noise"
+                },
+                "regulator_leakage": {
+                    "type": "number",
+                    "description": "Regulator information leakage parameter"
+                }
+            },
+            "required": [
+                "world_matrix",
+                "agent_gain"
+            ]
+        },
+        "Trajectory": {
+            "type": "object",
+            "properties": {
+                "states": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/State"
+                    }
+                },
+                "converged": {
+                    "type": "boolean"
+                },
+                "iterations": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "states",
+                "converged",
+                "iterations"
+            ]
+        }
+    }
+}

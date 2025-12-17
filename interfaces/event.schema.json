@@ -1,0 +1,93 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Event Schemas",
+    "description": "Schemas for system events and notifications",
+    "definitions": {
+        "ExperimentEvent": {
+            "type": "object",
+            "properties": {
+                "event_type": {
+                    "type": "string",
+                    "enum": [
+                        "created",
+                        "started",
+                        "completed",
+                        "failed",
+                        "cancelled"
+                    ]
+                },
+                "experiment_id": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "timestamp": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "metadata": {
+                    "type": "object"
+                }
+            },
+            "required": [
+                "event_type",
+                "experiment_id",
+                "timestamp"
+            ]
+        },
+        "SystemEvent": {
+            "type": "object",
+            "properties": {
+                "event_type": {
+                    "type": "string",
+                    "enum": [
+                        "worker_connected",
+                        "worker_disconnected",
+                        "qpu_registered",
+                        "qpu_failed"
+                    ]
+                },
+                "component": {
+                    "type": "string"
+                },
+                "timestamp": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "details": {
+                    "type": "object"
+                }
+            },
+            "required": [
+                "event_type",
+                "component",
+                "timestamp"
+            ]
+        },
+        "ErrorEvent": {
+            "type": "object",
+            "properties": {
+                "error_type": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "stack_trace": {
+                    "type": "string"
+                },
+                "timestamp": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "context": {
+                    "type": "object"
+                }
+            },
+            "required": [
+                "error_type",
+                "message",
+                "timestamp"
+            ]
+        }
+    }
+}

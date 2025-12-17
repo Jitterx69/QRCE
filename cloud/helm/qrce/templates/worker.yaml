@@ -14,4 +14,14 @@ spec:
     spec:
       containers:
         - name: worker
-          image: qrce-worker:latest
+          image: {{ .Values.worker.image }}:{{ .Values.worker.tag }}
+          ports:
+            - containerPort: 9000
+          resources:
+            requests:
+              memory: "{{ .Values.worker.resources.requests.memory }}"
+              cpu: "{{ .Values.worker.resources.requests.cpu }}"
+            limits:
+              memory: "{{ .Values.worker.resources.limits.memory }}"
+              cpu: "{{ .Values.worker.resources.limits.cpu }}"
+

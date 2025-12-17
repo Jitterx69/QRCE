@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qrce-qpu
+spec:
+  replicas: {{ .Values.qpu.replicas }}
+  selector:
+    matchLabels:
+      app: qrce-qpu
+  template:
+    metadata:
+      labels:
+        app: qrce-qpu
+    spec:
+      containers:
+        - name: qpu
+          image: {{ .Values.qpu.image }}:{{ .Values.qpu.tag }}
+          ports:
+            - containerPort: 9100
+          env:
+            - name: NOISE_LEVEL
+              value: "{{ .Values.qpu.noiseLevel }}"
+          resources:
+            requests:
+              memory: "{{ .Values.qpu.resources.requests.memory }}"
+              cpu: "{{ .Values.qpu.resources.requests.cpu }}"
+            limits:
+              memory: "{{ .Values.qpu.resources.limits.memory }}"
+              cpu: "{{ .Values.qpu.resources.limits.cpu }}"

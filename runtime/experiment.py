@@ -1,5 +1,5 @@
 import uuid
-from datetime import datetime
+from datetime import datetime, timezone
 
 class Experiment:
     def __init__(self, name, initial_state, max_steps):
@@ -7,4 +7,5 @@ class Experiment:
         self.name = name
         self.initial_state = initial_state
         self.max_steps = int(max_steps)
-        self.created_at = datetime.utcnow()
+        self.created_at = datetime.now(timezone.utc)
+
