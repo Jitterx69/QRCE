@@ -333,10 +333,9 @@ quantum-reflexive-control-system/
 
 For research collaboration, technical inquiries, or access requests:
 
-**Author**: Mohit Ranjan  
+**Author**: Mohit Ranjan (ORCiD: 0009-0005-9879-7373)
 **Affiliation**: Independent Researcher, Department of Robotics & Artificial Intelligence, C.V Raman Global University, Bhubaneswar-752054, India.  
-**Repository**: quantum-reflexive-control-system
-**ORCiD**: 0009-0005-9879-7373
+**Repository**: QRCS
 
 ---
 
