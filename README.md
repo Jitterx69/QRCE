@@ -2,7 +2,7 @@
 
 ## Abstract
 
-The Quantum-Reflexive Control Engine (QRCE) is a research-grade computational platform for the formal study of reflexive predictive systems. A reflexive system is characterized by the property that predictions about future states causally influence those very states, creating feedback loops that challenge traditional control-theoretic and information-theoretic frameworks. QRCE provides a unified architecture for modeling, simulating, and controlling such systems across both classical and quantum domains, with integrated ethical constraints and computability analysis.
+The QRCE or Quantum-Reflexive Control Engine is a research-grade computational platform for the formal study of reflexive predictive systems. A reflexive system is characterized by the property that predictions about future states causally influence those very states, creating feedback loops that challenge traditional control-theoretic and information-theoretic frameworks. QRCE provides a unified architecture for modeling, simulating, and controlling such systems across both classical and quantum domains, with integrated ethical constraints and computability analysis.
 
 ## 1. Introduction
 
